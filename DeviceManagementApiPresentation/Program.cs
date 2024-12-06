@@ -1,6 +1,7 @@
 using Application.Services;
 using DeviceManagementDomain.Interfaces.Repositories;
 using DeviceManagementInfrastucture.Repositories;
+using FluentValidation;
 using FluentValidation.AspNetCore;
 using Serilog;
 using System.Data;
@@ -16,11 +17,12 @@ Log.Logger = new LoggerConfiguration()
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog();
 
-builder.Services.AddControllers()
-    .AddFluentValidation(config =>
-    {
-        config.RegisterValidatorsFromAssemblyContaining<Program>();
-    });
+builder.Services.AddControllers();
+
+builder.Services.AddFluentValidationAutoValidation()
+                .AddFluentValidationClientsideAdapters();
+
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
