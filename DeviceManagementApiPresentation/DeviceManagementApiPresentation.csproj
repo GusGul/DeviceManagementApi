@@ -15,9 +15,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="DeviceManagementApplication\Class1.cs">
-        <Link>Application\Class1.cs</Link>
-      </Compile>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
     </ItemGroup>
 
 </Project>

@@ -1,0 +1,6 @@
+@DeviceManagementApiPresentation_HostAddress = http://localhost:5068
+
+GET {{DeviceManagementApiPresentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
