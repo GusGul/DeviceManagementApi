@@ -22,29 +22,34 @@ namespace DeviceManagementInfrastucture.Repositories
             return await _dbConnection.ExecuteScalarAsync<int>(query, device);
         }
 
-        public Task DeleteDeviceAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public Task<Device?> GetDeviceAsync(int id)
         {
-            throw new NotImplementedException();
+            const string query = "SELECT Id, Name, Brand, CreatedAt FROM Devices WHERE Id = @Id;";
+            return _dbConnection.QueryFirstOrDefaultAsync<Device>(query, new { Id = id });
         }
 
         public Task<IEnumerable<Device>> GetDevicesAsync()
         {
-            throw new NotImplementedException();
+            const string query = "SELECT Id, Name, Brand, CreatedAt FROM Devices;";
+            return _dbConnection.QueryAsync<Device>(query);
         }
 
-        public Task<IEnumerable<Device>> SearchDevicesByBrandAsync(string brand)
+        public Task DeleteDeviceAsync(int id)
         {
-            throw new NotImplementedException();
+            const string query = "DELETE FROM Devices WHERE Id = @Id;";
+            return _dbConnection.ExecuteAsync(query, new { Id = id });
         }
 
         public Task UpdateDeviceAsync(Device device)
         {
-            throw new NotImplementedException();
+            const string query = "UPDATE Devices SET Name = @Name, Brand = @Brand WHERE Id = @Id;";
+            return _dbConnection.ExecuteAsync(query, device);
+        }
+
+        public Task<IEnumerable<Device>> SearchDevicesByBrandAsync(string brand)
+        {
+            const string query = "SELECT Id, Name, Brand, CreatedAt FROM Devices WHERE Brand = @Brand;";
+            return _dbConnection.QueryAsync<Device>(query, new { Brand = brand });
         }
     }
 }
