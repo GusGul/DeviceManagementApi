@@ -2,6 +2,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagementApi", "DeviceManagementApi.csproj", "{93BA2904-48FA-4C58-BC5B-9F5F6AF5C66D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagementApplication", "DeviceManagementApplication\DeviceManagementApplication.csproj", "{A84368A1-D1C4-44FE-B64E-E0C12C0831FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagementDomain", "DeviceManagementDomain\DeviceManagementDomain.csproj", "{3AF5EC31-03E7-4CA4-BACB-0311835B9056}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagementInfrastucture", "DeviceManagementInfrastucture\DeviceManagementInfrastucture.csproj", "{B8F54472-EED6-441C-906A-9159C2D44AF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +18,17 @@ Global
 		{93BA2904-48FA-4C58-BC5B-9F5F6AF5C66D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93BA2904-48FA-4C58-BC5B-9F5F6AF5C66D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93BA2904-48FA-4C58-BC5B-9F5F6AF5C66D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A84368A1-D1C4-44FE-B64E-E0C12C0831FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A84368A1-D1C4-44FE-B64E-E0C12C0831FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A84368A1-D1C4-44FE-B64E-E0C12C0831FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A84368A1-D1C4-44FE-B64E-E0C12C0831FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AF5EC31-03E7-4CA4-BACB-0311835B9056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AF5EC31-03E7-4CA4-BACB-0311835B9056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AF5EC31-03E7-4CA4-BACB-0311835B9056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AF5EC31-03E7-4CA4-BACB-0311835B9056}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8F54472-EED6-441C-906A-9159C2D44AF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8F54472-EED6-441C-906A-9159C2D44AF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8F54472-EED6-441C-906A-9159C2D44AF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8F54472-EED6-441C-906A-9159C2D44AF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
