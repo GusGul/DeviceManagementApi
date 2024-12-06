@@ -2,11 +2,20 @@ using Application.Services;
 using DeviceManagementDomain.Interfaces.Repositories;
 using DeviceManagementInfrastucture.Repositories;
 using FluentValidation.AspNetCore;
+using Serilog;
 using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Plan to change this (method is obsolet, there is a new method to use), but for now, it's fine
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .WriteTo.Console()
+    .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog();
+
 builder.Services.AddControllers()
     .AddFluentValidation(config =>
     {
@@ -19,6 +28,7 @@ builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
 
 builder.Services.AddScoped<DeviceService>();
 
+builder.Services.AddSingleton<LogService>();
 builder.Services.AddSingleton<IDbConnection>(_ =>
     new Npgsql.NpgsqlConnection(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
