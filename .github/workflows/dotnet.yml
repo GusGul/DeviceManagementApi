@@ -36,16 +36,16 @@ jobs:
       with:
         credentials_json: ${{ secrets.GCP_SA_KEY }}
 
-    - name: Configure gcloud
-      run: |
-        gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
-        gcloud config set compute/region ${{ secrets.GCP_REGION }}
+    - name: Set the project
+      run: gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
 
-    - name: Run Cloud Build
+    - name: Build Docker image
       run: |
-        gcloud builds submit \
-            --substitutions _PROJECT_ID=${{ secrets.GCP_PROJECT_ID }} \
-            --config cloudbuild.yaml .
+        docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/device-management-api:latest .
+
+    - name: Push Docker image to Google Container Registry
+      run: |
+        docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/device-management-api:latest
 
     - name: Deploy to Google Cloud Run
       run: |
