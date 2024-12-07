@@ -31,7 +31,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
 
-builder.Services.AddScoped<DeviceService>();
+builder.Services.AddScoped<IDeviceService, DeviceService>();
 
 builder.Services.AddSingleton<LogService>();
 builder.Services.AddSingleton<IDbConnection>(_ =>
