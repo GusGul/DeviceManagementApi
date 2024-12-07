@@ -29,7 +29,7 @@ jobs:
 
     - name: Run Application
       run: |
-        dotnet run --project ./DeviceManagementApi/DeviceManagementApi.csproj
+        dotnet run --project ./DeviceManagementApiPresentation/DeviceManagementApiPresentation.csproj
       env:
         ConnectionStrings__DefaultConnection: ${{ secrets.DATABASE_CONNECTION_STRING }}
 
