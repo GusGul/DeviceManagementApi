@@ -1,11 +1,14 @@
 ﻿using Microsoft.Extensions.Logging;
 
-public class LogService
+namespace Application.Services
 {
-    private readonly ILogger<LogService> _logger;
-
-    public LogService(ILogger<LogService> logger)
+    public class LogService
     {
-        _logger = logger;
+        private readonly ILogger<LogService> _logger;
+
+        public LogService(ILogger<LogService> logger)
+        {
+            _logger = logger;
+        }
     }
 }
