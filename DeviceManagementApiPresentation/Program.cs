@@ -1,10 +1,11 @@
 using Application.Services;
 using DeviceManagementDomain.Interfaces.Repositories;
-using DeviceManagementInfrastucture.Repositories;
+using DeviceManagementInfrastructure.Repositories;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Serilog;
 using System.Data;
+using DeviceManagementApplication.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,9 @@ builder.Services.AddControllers();
 builder.Services.AddFluentValidationAutoValidation()
                 .AddFluentValidationClientsideAdapters();
 
-builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+builder.Services.AddValidatorsFromAssemblyContaining<DeviceValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<DeviceDTOValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<DevicePatchDTOValidator>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

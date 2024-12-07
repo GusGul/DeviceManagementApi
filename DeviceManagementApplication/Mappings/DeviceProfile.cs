@@ -8,8 +8,8 @@ public class DeviceProfile : Profile
 {
     public DeviceProfile()
     {
-        CreateMap<Device, DeviceDTO>();
-
-        CreateMap<DeviceDTO, Device>();
+        CreateMap<Device, DeviceDTO>().ReverseMap();
+        
+        CreateMap<Device, DevicePatchDTO>().ReverseMap();
     }
 }

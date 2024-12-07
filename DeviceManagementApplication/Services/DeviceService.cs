@@ -1,4 +1,6 @@
-﻿using DeviceManagementDomain.Entities;
+﻿using Application.DTOs;
+using AutoMapper;
+using DeviceManagementDomain.Entities;
 using DeviceManagementDomain.Interfaces.Repositories;
 
 namespace Application.Services;
@@ -6,14 +8,17 @@ namespace Application.Services;
 public class DeviceService
 {
     private readonly IDeviceRepository _deviceRepository;
+    private readonly IMapper _mapper;
 
-    public DeviceService(IDeviceRepository deviceRepository)
+    public DeviceService(IDeviceRepository deviceRepository, IMapper mapper)
     {
         _deviceRepository = deviceRepository;
+        _mapper = mapper;
     }
 
-    public async Task<int> AddDevice(Device device)
+    public async Task<int> AddDevice(DeviceDTO deviceDto)
     {
+        Device device = _mapper.Map<Device>(deviceDto);
         return await _deviceRepository.AddDeviceAsync(device);
     }
 
@@ -27,8 +32,15 @@ public class DeviceService
         return await _deviceRepository.GetDevicesAsync(); 
     }
 
-    public async Task UpdateDeviceAsync(Device device)
+    public async Task UpdateDeviceAsync(DeviceDTO deviceDto)
     {
+        Device device = _mapper.Map<Device>(deviceDto);
+        await _deviceRepository.UpdateDeviceAsync(device);
+    }
+
+    public async Task UpdateDevicePartialAsync(DevicePatchDTO devicePatchDto)
+    {
+        Device device = _mapper.Map<Device>(devicePatchDto);
         await _deviceRepository.UpdateDeviceAsync(device);
     }
 

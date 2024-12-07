@@ -1,4 +1,5 @@
-﻿using Application.Services;
+﻿using Application.DTOs;
+using Application.Services;
 using DeviceManagementDomain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,16 +17,16 @@ public class DeviceController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddDevice([FromBody] Device device)
+    public async Task<IActionResult> AddDevice([FromBody] DeviceDTO deviceDto)
     {
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
 
-        var deviceId = await _deviceService.AddDevice(device);
+        var deviceId = await _deviceService.AddDevice(deviceDto);
 
-        return CreatedAtAction(nameof(GetDeviceById), new { id = deviceId }, device);
+        return CreatedAtAction(nameof(GetDeviceById), new { id = deviceId }, deviceDto);
     }
 
     [HttpGet("{id}")]
@@ -48,7 +49,7 @@ public class DeviceController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateDevice(int id, [FromBody] Device device)
+    public async Task<IActionResult> UpdateDevice(int id, [FromBody] DeviceDTO deviceDto)
     {
         if (!ModelState.IsValid)
         {
@@ -61,14 +62,14 @@ public class DeviceController : ControllerBase
             return NotFound($"Device with ID {id} not found.");
         }
 
-        device.Id = id;
-        await _deviceService.UpdateDeviceAsync(device);
+        deviceDto.Id = id;
+        await _deviceService.UpdateDeviceAsync(deviceDto);
 
-        return Ok(device);
+        return Ok(deviceDto);
     }
 
     [HttpPatch("{id}")]
-    public async Task<IActionResult> UpdateDevicePartial(int id, [FromBody] Device device)
+    public async Task<IActionResult> UpdateDevicePartial(int id, [FromBody] DevicePatchDTO devicePatchDto)
     {
         var existingDevice = await _deviceService.GetDeviceAsync(id);
         if (existingDevice == null)
@@ -76,16 +77,8 @@ public class DeviceController : ControllerBase
             return NotFound($"Device with ID {id} not found.");
         }
 
-        if (!string.IsNullOrEmpty(device.Name))
-        {
-            existingDevice.Name = device.Name;
-        }
-        if (!string.IsNullOrEmpty(device.Brand))
-        {
-            existingDevice.Brand = device.Brand;
-        }
-
-        await _deviceService.UpdateDeviceAsync(existingDevice);
+        devicePatchDto.Id = id;
+        await _deviceService.UpdateDevicePartialAsync(devicePatchDto);
 
         return Ok(existingDevice);
     }

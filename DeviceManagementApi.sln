@@ -4,9 +4,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagementApplication
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagementDomain", "DeviceManagementDomain\DeviceManagementDomain.csproj", "{3AF5EC31-03E7-4CA4-BACB-0311835B9056}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagementInfrastucture", "DeviceManagementInfrastucture\DeviceManagementInfrastucture.csproj", "{B8F54472-EED6-441C-906A-9159C2D44AF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagementInfrastructure", "DeviceManagementInfrastructure\DeviceManagementInfrastructure.csproj", "{B8F54472-EED6-441C-906A-9159C2D44AF7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagementApiPresentation", "DeviceManagementApiPresentation\DeviceManagementApiPresentation.csproj", "{C86645E8-F041-497C-B59F-3EF8B5902CFF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D95C2267-645D-450E-B426-80133D642669}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagementApiPresentation.Tests", "DeviceManagementApiPresentation.Tests\DeviceManagementApiPresentation.Tests.csproj", "{44AC56CC-B6F1-494C-9591-6DF99E0F7717}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagementApplication.Tests", "DeviceManagementApplication.Tests\DeviceManagementApplication.Tests.csproj", "{487A5113-21DA-466A-BDE6-3FE0DB57D489}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagementDomain.Tests", "DeviceManagementDomain.Tests\DeviceManagementDomain.Tests.csproj", "{118D06A7-CE9E-42FD-BA6E-425D564A25B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagementInfrastruture.Tests", "DeviceManagementInfrastruture.Tests\DeviceManagementInfrastruture.Tests.csproj", "{2B813D07-FFDA-4275-82D1-8D5E549140B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +40,27 @@ Global
 		{C86645E8-F041-497C-B59F-3EF8B5902CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C86645E8-F041-497C-B59F-3EF8B5902CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C86645E8-F041-497C-B59F-3EF8B5902CFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44AC56CC-B6F1-494C-9591-6DF99E0F7717}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44AC56CC-B6F1-494C-9591-6DF99E0F7717}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44AC56CC-B6F1-494C-9591-6DF99E0F7717}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44AC56CC-B6F1-494C-9591-6DF99E0F7717}.Release|Any CPU.Build.0 = Release|Any CPU
+		{487A5113-21DA-466A-BDE6-3FE0DB57D489}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{487A5113-21DA-466A-BDE6-3FE0DB57D489}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{487A5113-21DA-466A-BDE6-3FE0DB57D489}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{487A5113-21DA-466A-BDE6-3FE0DB57D489}.Release|Any CPU.Build.0 = Release|Any CPU
+		{118D06A7-CE9E-42FD-BA6E-425D564A25B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{118D06A7-CE9E-42FD-BA6E-425D564A25B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{118D06A7-CE9E-42FD-BA6E-425D564A25B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{118D06A7-CE9E-42FD-BA6E-425D564A25B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B813D07-FFDA-4275-82D1-8D5E549140B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B813D07-FFDA-4275-82D1-8D5E549140B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B813D07-FFDA-4275-82D1-8D5E549140B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B813D07-FFDA-4275-82D1-8D5E549140B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{44AC56CC-B6F1-494C-9591-6DF99E0F7717} = {D95C2267-645D-450E-B426-80133D642669}
+		{487A5113-21DA-466A-BDE6-3FE0DB57D489} = {D95C2267-645D-450E-B426-80133D642669}
+		{118D06A7-CE9E-42FD-BA6E-425D564A25B8} = {D95C2267-645D-450E-B426-80133D642669}
+		{2B813D07-FFDA-4275-82D1-8D5E549140B7} = {D95C2267-645D-450E-B426-80133D642669}
 	EndGlobalSection
 EndGlobal

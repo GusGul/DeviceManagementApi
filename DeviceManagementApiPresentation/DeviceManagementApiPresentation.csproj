@@ -20,7 +20,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\DeviceManagementApplication\DeviceManagementApplication.csproj" />
-      <ProjectReference Include="..\DeviceManagementInfrastucture\DeviceManagementInfrastucture.csproj" />
+      <ProjectReference Include="..\DeviceManagementInfrastructure\DeviceManagementInfrastructure.csproj" />
     </ItemGroup>
 
 </Project>
