@@ -1,6 +1,60 @@
 @DeviceManagementApiPresentation_HostAddress = http://localhost:5068
 
-GET {{DeviceManagementApiPresentation_HostAddress}}/weatherforecast/
+### Add a new device
+POST {{DeviceManagementApiPresentation_HostAddress}}/api/devices
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Device Name",
+  "brand": "Device Brand"
+}
+
+###
+
+### Get a device by ID
+GET {{DeviceManagementApiPresentation_HostAddress}}/api/devices/1
+Accept: application/json
+
+###
+
+### Get all devices
+GET {{DeviceManagementApiPresentation_HostAddress}}/api/devices
+Accept: application/json
+
+###
+
+### Update a device by ID
+PUT {{DeviceManagementApiPresentation_HostAddress}}/api/devices/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Updated Device Name",
+  "brand": "Updated Brand",
+}
+
+###
+
+### Partially update a device by ID
+PATCH {{DeviceManagementApiPresentation_HostAddress}}/api/devices/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "brand": "Partially Updated Brand"
+}
+
+###
+
+### Delete a device by ID
+DELETE {{DeviceManagementApiPresentation_HostAddress}}/api/devices/1
+Accept: application/json
+
+###
+
+### Search devices by brand
+GET {{DeviceManagementApiPresentation_HostAddress}}/api/devices/search?brand=BrandName
 Accept: application/json
 
 ###
