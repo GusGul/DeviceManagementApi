@@ -27,13 +27,13 @@ public class DeviceRepository : IDeviceRepository
 
     public async Task<Device?> GetDeviceAsync(int id)
     {
-        const string query = "SELECT Id, Name, Brand, CreatedAt FROM Devices WHERE Id = @Id;";
+        const string query = "SELECT Id, Name, Brand, CreationTime FROM Devices WHERE Id = @Id;";
         return await _dbConnection.QueryFirstOrDefaultAsync<Device>(query, new { Id = id });
     }
 
     public async Task<IEnumerable<Device>> GetDevicesAsync()
     {
-        const string query = "SELECT Id, Name, Brand, CreatedAt FROM Devices;";
+        const string query = "SELECT Id, Name, Brand, CreationTime FROM Devices;";
         return await _dbConnection.QueryAsync<Device>(query);
     }
 
@@ -55,19 +55,41 @@ public class DeviceRepository : IDeviceRepository
     {
         try
         {
-            const string query = "UPDATE Devices SET Name = @Name, Brand = @Brand WHERE Id = @Id;";
-            await _dbConnection.ExecuteAsync(query, device);
+            var updates = new List<string>();
+            var parameters = new DynamicParameters();
+
+            if (!string.IsNullOrWhiteSpace(device.Name))
+            {
+                updates.Add("Name = @Name");
+                parameters.Add("Name", device.Name);
+            }
+
+            if (!string.IsNullOrWhiteSpace(device.Brand))
+            {
+                updates.Add("Brand = @Brand");
+                parameters.Add("Brand", device.Brand);
+            }
+
+            if (!updates.Any())
+            {
+                throw new ArgumentException("No valid fields were provided for the update.");
+            }
+
+            parameters.Add("Id", device.Id);
+
+            var query = $"UPDATE Devices SET {string.Join(", ", updates)} WHERE Id = @Id;";
+            await _dbConnection.ExecuteAsync(query, parameters);
         }
         catch (Exception ex)
         {
-            _logger.LogError($"Erro ao tentar atualizar o dispositivo com Id {device.Id}: {ex.Message}");
+            _logger.LogError($"Error while trying to update the device with Id {device.Id}: {ex.Message}");
             throw;
         }
     }
 
     public async Task<IEnumerable<Device>> SearchDevicesByBrandAsync(string brand)
     {
-        const string query = "SELECT Id, Name, Brand, CreatedAt FROM Devices WHERE Brand = @Brand;";
+        const string query = "SELECT Id, Name, Brand, CreationTime FROM Devices WHERE Brand = @Brand;";
         return await _dbConnection.QueryAsync<Device>(query, new { Brand = brand });
     }
 }
