@@ -6,6 +6,7 @@ using FluentValidation.AspNetCore;
 using Serilog;
 using System.Data;
 using DeviceManagementApplication.Validators;
+using DeviceManagementInfrastructure.Factories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,8 @@ builder.Services.AddValidatorsFromAssemblyContaining<DeviceDTOValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<DevicePatchDTOValidator>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.AddScoped<IDatabaseFactory, DatabaseFactory>();
 
 builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
 
