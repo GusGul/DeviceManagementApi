@@ -10,4 +10,9 @@ public class LogService
     {
         _logger = logger;
     }
+    
+    public void LogMessage(string message)
+    {
+        _logger.LogInformation(message);
+    }
 }
