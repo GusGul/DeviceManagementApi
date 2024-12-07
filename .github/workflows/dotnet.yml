@@ -27,11 +27,11 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
 
-    - name: Run tests and generate code coverage
-      run: dotnet test --collect:"XPlat Code Coverage" --no-build --verbosity normal
-
     - name: Run Application
       run: |
-        dotnet run
+        dotnet run --project ./DeviceManagementApi/DeviceManagementApi.csproj
       env:
         ConnectionStrings__DefaultConnection: ${{ secrets.DATABASE_CONNECTION_STRING }}
+
+    - name: Run tests and generate code coverage
+      run: dotnet test --collect:"XPlat Code Coverage" --no-build --verbosity normal
