@@ -6,7 +6,7 @@ namespace Application.Services;
 public interface IDeviceService
 {
     Task<int> AddDevice(DeviceDTO deviceDto);
-    Task<Device?> GetDeviceAsync(int id);
+    Task<Device?> GetDeviceByIdAsync(int id);
     Task<IEnumerable<Device>> GetDevicesAsync();
     Task UpdateDeviceAsync(DeviceDTO deviceDto);
     Task UpdateDevicePartialAsync(DevicePatchDTO devicePatchDto);

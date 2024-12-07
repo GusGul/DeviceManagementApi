@@ -43,7 +43,7 @@ public class DeviceControllerTests
     public async Task GetDevice_ShouldReturnOkResult_WhenDeviceExists()
     {
         var device = new Device { Id = 1, Name = "Test Device", Brand = "Test Brand" };
-        _mockService.Setup(s => s.GetDeviceAsync(It.IsAny<int>())).ReturnsAsync(device);
+        _mockService.Setup(s => s.GetDeviceByIdAsync(It.IsAny<int>())).ReturnsAsync(device);
 
         var result = await _controller.GetDeviceById(device.Id);
 
@@ -55,7 +55,7 @@ public class DeviceControllerTests
     [Fact]
     public async Task GetDevice_ShouldReturnNotFoundResult_WhenDeviceDoesNotExist()
     {
-        _mockService.Setup(s => s.GetDeviceAsync(It.IsAny<int>())).ReturnsAsync((Device)null);
+        _mockService.Setup(s => s.GetDeviceByIdAsync(It.IsAny<int>())).ReturnsAsync((Device)null);
 
         var result = await _controller.GetDeviceById(1);
 
@@ -98,7 +98,7 @@ public class DeviceControllerTests
     {
         var deviceDto = new DeviceDTO { Id = 1, Name = "Test Device", Brand = "Test Brand" };
         var existingDevice = new Device { Id = 1, Name = "Existing Device", Brand = "Existing Brand" };
-        _mockService.Setup(s => s.GetDeviceAsync(It.IsAny<int>())).ReturnsAsync(existingDevice);
+        _mockService.Setup(s => s.GetDeviceByIdAsync(It.IsAny<int>())).ReturnsAsync(existingDevice);
 
         var result = await _controller.UpdateDevice((int)deviceDto.Id, deviceDto);
 
@@ -110,7 +110,7 @@ public class DeviceControllerTests
     [Fact]
     public async Task UpdateDevice_ShouldReturnNotFoundResult_WhenDeviceDoesNotExist()
     {
-        _mockService.Setup(s => s.GetDeviceAsync(It.IsAny<int>())).ReturnsAsync((Device)null);
+        _mockService.Setup(s => s.GetDeviceByIdAsync(It.IsAny<int>())).ReturnsAsync((Device)null);
 
         var result = await _controller.UpdateDevice(1, new DeviceDTO());
 
@@ -134,7 +134,7 @@ public class DeviceControllerTests
     {
         var devicePatchDto = new DevicePatchDTO { Id = 1, Name = "Test Device" };
         var existingDevice = new Device { Id = 1, Name = "Existing Device", Brand = "Existing Brand" };
-        _mockService.Setup(s => s.GetDeviceAsync(It.IsAny<int>())).ReturnsAsync(existingDevice);
+        _mockService.Setup(s => s.GetDeviceByIdAsync(It.IsAny<int>())).ReturnsAsync(existingDevice);
 
         var result = await _controller.UpdateDevicePartial((int)devicePatchDto.Id, devicePatchDto);
 
@@ -146,7 +146,7 @@ public class DeviceControllerTests
     [Fact]
     public async Task UpdateDevicePartial_ShouldReturnNotFoundResult_WhenDeviceDoesNotExist()
     {
-        _mockService.Setup(s => s.GetDeviceAsync(It.IsAny<int>())).ReturnsAsync((Device)null);
+        _mockService.Setup(s => s.GetDeviceByIdAsync(It.IsAny<int>())).ReturnsAsync((Device)null);
 
         var result = await _controller.UpdateDevicePartial(1, new DevicePatchDTO());
 
@@ -159,7 +159,7 @@ public class DeviceControllerTests
     public async Task DeleteDevice_ShouldReturnNoContent_WhenDeviceIsDeleted()
     {
         var existingDevice = new Device { Id = 1, Name = "Existing Device", Brand = "Existing Brand" };
-        _mockService.Setup(s => s.GetDeviceAsync(It.IsAny<int>())).ReturnsAsync(existingDevice);
+        _mockService.Setup(s => s.GetDeviceByIdAsync(It.IsAny<int>())).ReturnsAsync(existingDevice);
 
         var result = await _controller.DeleteDevice(existingDevice.Id);
 
@@ -169,7 +169,7 @@ public class DeviceControllerTests
     [Fact]
     public async Task DeleteDevice_ShouldReturnNotFoundResult_WhenDeviceDoesNotExist()
     {
-        _mockService.Setup(s => s.GetDeviceAsync(It.IsAny<int>())).ReturnsAsync((Device)null);
+        _mockService.Setup(s => s.GetDeviceByIdAsync(It.IsAny<int>())).ReturnsAsync((Device)null);
 
         var result = await _controller.DeleteDevice(1);
 

@@ -31,7 +31,7 @@ public class DeviceController : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> GetDeviceById(int id)
     {
-        var device = await _deviceService.GetDeviceAsync(id);
+        var device = await _deviceService.GetDeviceByIdAsync(id);
         if (device == null)
         {
             return NotFound($"Device with ID {id} not found.");
@@ -55,7 +55,7 @@ public class DeviceController : ControllerBase
             return BadRequest(ModelState);
         }
 
-        var existingDevice = await _deviceService.GetDeviceAsync(id);
+        var existingDevice = await _deviceService.GetDeviceByIdAsync(id);
         if (existingDevice == null)
         {
             return NotFound($"Device with ID {id} not found.");
@@ -70,7 +70,7 @@ public class DeviceController : ControllerBase
     [HttpPatch("{id}")]
     public async Task<IActionResult> UpdateDevicePartial(int id, [FromBody] DevicePatchDTO devicePatchDto)
     {
-        var existingDevice = await _deviceService.GetDeviceAsync(id);
+        var existingDevice = await _deviceService.GetDeviceByIdAsync(id);
         if (existingDevice == null)
         {
             return NotFound($"Device with ID {id} not found.");
@@ -85,7 +85,7 @@ public class DeviceController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteDevice(int id)
     {
-        var existingDevice = await _deviceService.GetDeviceAsync(id);
+        var existingDevice = await _deviceService.GetDeviceByIdAsync(id);
         if (existingDevice == null)
         {
             return NotFound($"Device with ID {id} not found.");

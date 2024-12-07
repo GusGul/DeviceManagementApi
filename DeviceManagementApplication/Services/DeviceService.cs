@@ -22,7 +22,7 @@ public class DeviceService : IDeviceService
         return await _deviceRepository.AddDeviceAsync(device);
     }
 
-    public async Task<Device?> GetDeviceAsync(int id)
+    public async Task<Device?> GetDeviceByIdAsync(int id)
     {
         return await _deviceRepository.GetDeviceAsync(id);
     }

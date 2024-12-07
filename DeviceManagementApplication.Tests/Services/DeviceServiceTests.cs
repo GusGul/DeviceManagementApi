@@ -36,7 +36,7 @@ public class DeviceServiceTests
         var device = new Device { Id = 1, Name = "Device 1", Brand = "Brand A" };
         _mockRepository.Setup(r => r.GetDeviceAsync(It.IsAny<int>())).ReturnsAsync(device);
 
-        var result = await _service.GetDeviceAsync(1);
+        var result = await _service.GetDeviceByIdAsync(1);
 
         result.Should().Be(device);
     }
