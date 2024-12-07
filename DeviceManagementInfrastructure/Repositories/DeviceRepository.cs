@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using Npgsql;
 using System.Data;
 
-namespace DeviceManagementInfrastucture.Repositories;
+namespace DeviceManagementInfrastructure.Repositories;
 
 public class DeviceRepository : IDeviceRepository
 {
@@ -89,7 +89,7 @@ public class DeviceRepository : IDeviceRepository
 
     public async Task<IEnumerable<Device>> SearchDevicesByBrandAsync(string brand)
     {
-        const string query = "SELECT Id, Name, Brand, CreationTime FROM Devices WHERE Brand = @Brand;";
-        return await _dbConnection.QueryAsync<Device>(query, new { Brand = brand });
+        const string query = "SELECT Id, Name, Brand, CreationTime FROM Devices WHERE Brand ILIKE @Brand;";
+        return await _dbConnection.QueryAsync<Device>(query, new { Brand = $"%{brand}%" });
     }
 }
