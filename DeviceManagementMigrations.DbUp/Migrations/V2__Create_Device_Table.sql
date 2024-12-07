@@ -1,8 +1,8 @@
-﻿CREATE TABLE Devices (
+﻿CREATE TABLE IF NOT EXISTS Devices (
     Id SERIAL PRIMARY KEY,
     Name VARCHAR(100) NOT NULL,
     Brand VARCHAR(50) NOT NULL,
     CreationTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX idx_devices_brand ON Devices (Brand);
+CREATE INDEX IF NOT EXISTS idx_devices_brand ON Devices (Brand);

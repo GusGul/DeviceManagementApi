@@ -19,9 +19,9 @@ public class DatabaseMigrator
 
         var upgrader = DeployChanges.To
             .PostgresqlDatabase(connectionString)
-            .WithScriptsFromFileSystem("migrations")
+            .WithScriptsFromFileSystem(@"..\DeviceManagementMigrations.DbUp\Migrations")
             .LogToConsole()
-            .JournalToPostgresqlTable("SchemaVersions", "public")
+            .JournalToPostgresqlTable("public", "SchemaVersions")
             .Build();
 
         var result = upgrader.PerformUpgrade();
