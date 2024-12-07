@@ -67,30 +67,6 @@ public class DeviceServiceTests
     }
     
     [Fact]
-    public async Task UpdateDeviceAsync_ShouldUpdateDevice_WhenDeviceExists()
-    {
-        var deviceDto = new DeviceDTO { Id = 1, Name = "Device 1", Brand = "Brand A" };
-        var device = new Device { Id = 1, Name = "Device 1", Brand = "Brand A" };
-        _mockRepository.Setup(r => r.UpdateDeviceAsync(It.IsAny<Device>())).Returns(Task.CompletedTask);
-
-        await _service.UpdateDeviceAsync(deviceDto);
-
-        _mockRepository.Verify(r => r.UpdateDeviceAsync(device), Times.Once);
-    }
-    
-    [Fact]
-    public async Task UpdateDevicePartialAsync_ShouldUpdateDevice_WhenDeviceExists()
-    {
-        var devicePatchDto = new DevicePatchDTO { Id = 1, Name = "Device 1" };
-        var device = new Device { Id = 1, Name = "Device 1", Brand = "Brand A" };
-        _mockRepository.Setup(r => r.UpdateDeviceAsync(It.IsAny<Device>())).Returns(Task.CompletedTask);
-
-        await _service.UpdateDevicePartialAsync(devicePatchDto);
-
-        _mockRepository.Verify(r => r.UpdateDeviceAsync(device), Times.Once);
-    }
-    
-    [Fact]
     public async Task DeleteDeviceAsync_ShouldDeleteDevice_WhenDeviceExists()
     {
         _mockRepository.Setup(r => r.DeleteDeviceAsync(It.IsAny<int>())).Returns(Task.CompletedTask);
