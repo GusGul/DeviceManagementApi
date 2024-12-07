@@ -506,3 +506,75 @@ POSITION: 14
 2024-12-07 18:08:33.575 -03:00 [INF] Application started. Press Ctrl+C to shut down.
 2024-12-07 18:08:33.576 -03:00 [INF] Hosting environment: Development
 2024-12-07 18:08:33.576 -03:00 [INF] Content root path: C:\Users\Gustavo\RiderProjects\DeviceManagementApi\DeviceManagementApiPresentation
+2024-12-07 18:20:20.427 -03:00 [INF] Database migration completed successfully.
+2024-12-07 18:20:20.504 -03:00 [INF] Now listening on: http://localhost:5068
+2024-12-07 18:20:20.506 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-07 18:20:20.506 -03:00 [INF] Hosting environment: Development
+2024-12-07 18:20:20.506 -03:00 [INF] Content root path: C:\Users\Gustavo\RiderProjects\DeviceManagementApi\DeviceManagementApiPresentation
+2024-12-07 18:20:20.964 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/index.html - null null
+2024-12-07 18:20:21.045 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/index.html - 200 null text/html;charset=utf-8 82.0343ms
+2024-12-07 18:20:21.244 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2024-12-07 18:20:21.319 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 74.7882ms
+2024-12-07 18:20:33.760 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/devices - application/json 54
+2024-12-07 18:20:33.766 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-12-07 18:20:33.768 -03:00 [INF] Executing endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation)'
+2024-12-07 18:20:33.787 -03:00 [INF] Route matched with {action = "AddDevice", controller = "Device"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddDevice(Domain.DTOs.DeviceDTO) on controller DeviceManagementApiPresentation.Controllers.DeviceController (DeviceManagementApiPresentation).
+2024-12-07 18:20:33.887 -03:00 [INF] Executing action method DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation) - Validation state: "Valid"
+2024-12-07 18:20:34.087 -03:00 [INF] Executed action method DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 196.4914ms.
+2024-12-07 18:20:34.095 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'Domain.DTOs.DeviceDTO'.
+2024-12-07 18:20:34.113 -03:00 [INF] Executed action DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation) in 321.9425ms
+2024-12-07 18:20:34.114 -03:00 [INF] Executed endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation)'
+2024-12-07 18:20:34.116 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/devices - 201 null application/json; charset=utf-8 355.6955ms
+2024-12-07 18:20:34.187 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/devices/1 - null 0
+2024-12-07 18:20:34.188 -03:00 [INF] Executing endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.GetDeviceById (DeviceManagementApiPresentation)'
+2024-12-07 18:20:34.193 -03:00 [INF] Route matched with {action = "GetDeviceById", controller = "Device"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDeviceById(Int32) on controller DeviceManagementApiPresentation.Controllers.DeviceController (DeviceManagementApiPresentation).
+2024-12-07 18:20:34.196 -03:00 [INF] Executing action method DeviceManagementApiPresentation.Controllers.DeviceController.GetDeviceById (DeviceManagementApiPresentation) - Validation state: "Valid"
+2024-12-07 18:20:34.368 -03:00 [INF] Executed action method DeviceManagementApiPresentation.Controllers.DeviceController.GetDeviceById (DeviceManagementApiPresentation), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 171.3246ms.
+2024-12-07 18:20:34.369 -03:00 [INF] Executing OkObjectResult, writing value of type 'DeviceManagementDomain.Entities.Device'.
+2024-12-07 18:20:34.375 -03:00 [INF] Executed action DeviceManagementApiPresentation.Controllers.DeviceController.GetDeviceById (DeviceManagementApiPresentation) in 180.6524ms
+2024-12-07 18:20:34.375 -03:00 [INF] Executed endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.GetDeviceById (DeviceManagementApiPresentation)'
+2024-12-07 18:20:34.376 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/devices/1 - 200 null application/json; charset=utf-8 188.5227ms
+2024-12-07 18:20:34.392 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/devices - null 0
+2024-12-07 18:20:34.393 -03:00 [INF] Executing endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.GetDevices (DeviceManagementApiPresentation)'
+2024-12-07 18:20:34.396 -03:00 [INF] Route matched with {action = "GetDevices", controller = "Device"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDevices() on controller DeviceManagementApiPresentation.Controllers.DeviceController (DeviceManagementApiPresentation).
+2024-12-07 18:20:34.398 -03:00 [INF] Executing action method DeviceManagementApiPresentation.Controllers.DeviceController.GetDevices (DeviceManagementApiPresentation) - Validation state: "Valid"
+2024-12-07 18:20:34.551 -03:00 [INF] Executed action method DeviceManagementApiPresentation.Controllers.DeviceController.GetDevices (DeviceManagementApiPresentation), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 153.3914ms.
+2024-12-07 18:20:34.552 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DeviceManagementDomain.Entities.Device, DeviceManagementDomain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-12-07 18:20:34.553 -03:00 [INF] Executed action DeviceManagementApiPresentation.Controllers.DeviceController.GetDevices (DeviceManagementApiPresentation) in 156.9404ms
+2024-12-07 18:20:34.554 -03:00 [INF] Executed endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.GetDevices (DeviceManagementApiPresentation)'
+2024-12-07 18:20:34.554 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/devices - 200 null application/json; charset=utf-8 162.2164ms
+2024-12-07 18:20:34.569 -03:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5068/api/devices/1 - application/json 64
+2024-12-07 18:20:34.570 -03:00 [INF] Executing endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.UpdateDevice (DeviceManagementApiPresentation)'
+2024-12-07 18:20:34.574 -03:00 [INF] Route matched with {action = "UpdateDevice", controller = "Device"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateDevice(Int32, Domain.DTOs.DeviceDTO) on controller DeviceManagementApiPresentation.Controllers.DeviceController (DeviceManagementApiPresentation).
+2024-12-07 18:20:34.580 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-12-07 18:20:34.589 -03:00 [INF] Executed action DeviceManagementApiPresentation.Controllers.DeviceController.UpdateDevice (DeviceManagementApiPresentation) in 14.0189ms
+2024-12-07 18:20:34.590 -03:00 [INF] Executed endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.UpdateDevice (DeviceManagementApiPresentation)'
+2024-12-07 18:20:34.590 -03:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5068/api/devices/1 - 400 null application/problem+json; charset=utf-8 21.3752ms
+2024-12-07 18:20:34.608 -03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5068/api/devices/1 - application/json 40
+2024-12-07 18:20:34.609 -03:00 [INF] Executing endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.UpdateDevicePartial (DeviceManagementApiPresentation)'
+2024-12-07 18:20:34.612 -03:00 [INF] Route matched with {action = "UpdateDevicePartial", controller = "Device"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateDevicePartial(Int32, Domain.DTOs.DevicePatchDTO) on controller DeviceManagementApiPresentation.Controllers.DeviceController (DeviceManagementApiPresentation).
+2024-12-07 18:20:34.614 -03:00 [INF] Executing action method DeviceManagementApiPresentation.Controllers.DeviceController.UpdateDevicePartial (DeviceManagementApiPresentation) - Validation state: "Valid"
+2024-12-07 18:20:34.932 -03:00 [INF] Executed action method DeviceManagementApiPresentation.Controllers.DeviceController.UpdateDevicePartial (DeviceManagementApiPresentation), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 317.4976ms.
+2024-12-07 18:20:34.933 -03:00 [INF] Executing OkObjectResult, writing value of type 'DeviceManagementDomain.Entities.Device'.
+2024-12-07 18:20:34.933 -03:00 [INF] Executed action DeviceManagementApiPresentation.Controllers.DeviceController.UpdateDevicePartial (DeviceManagementApiPresentation) in 320.8208ms
+2024-12-07 18:20:34.934 -03:00 [INF] Executed endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.UpdateDevicePartial (DeviceManagementApiPresentation)'
+2024-12-07 18:20:34.935 -03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5068/api/devices/1 - 200 null application/json; charset=utf-8 326.5141ms
+2024-12-07 18:20:34.949 -03:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5068/api/devices/1 - null 0
+2024-12-07 18:20:34.950 -03:00 [INF] Executing endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.DeleteDevice (DeviceManagementApiPresentation)'
+2024-12-07 18:20:34.955 -03:00 [INF] Route matched with {action = "DeleteDevice", controller = "Device"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteDevice(Int32) on controller DeviceManagementApiPresentation.Controllers.DeviceController (DeviceManagementApiPresentation).
+2024-12-07 18:20:34.957 -03:00 [INF] Executing action method DeviceManagementApiPresentation.Controllers.DeviceController.DeleteDevice (DeviceManagementApiPresentation) - Validation state: "Valid"
+2024-12-07 18:20:35.262 -03:00 [INF] Executed action method DeviceManagementApiPresentation.Controllers.DeviceController.DeleteDevice (DeviceManagementApiPresentation), returned result Microsoft.AspNetCore.Mvc.NoContentResult in 305.0255ms.
+2024-12-07 18:20:35.266 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2024-12-07 18:20:35.266 -03:00 [INF] Executed action DeviceManagementApiPresentation.Controllers.DeviceController.DeleteDevice (DeviceManagementApiPresentation) in 310.914ms
+2024-12-07 18:20:35.267 -03:00 [INF] Executed endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.DeleteDevice (DeviceManagementApiPresentation)'
+2024-12-07 18:20:35.267 -03:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5068/api/devices/1 - 204 null null 317.9345ms
+2024-12-07 18:20:35.278 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/api/devices/search?brand=BrandName - null 0
+2024-12-07 18:20:35.278 -03:00 [INF] Executing endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.SearchDevicesByBrand (DeviceManagementApiPresentation)'
+2024-12-07 18:20:35.281 -03:00 [INF] Route matched with {action = "SearchDevicesByBrand", controller = "Device"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchDevicesByBrand(System.String) on controller DeviceManagementApiPresentation.Controllers.DeviceController (DeviceManagementApiPresentation).
+2024-12-07 18:20:35.284 -03:00 [INF] Executing action method DeviceManagementApiPresentation.Controllers.DeviceController.SearchDevicesByBrand (DeviceManagementApiPresentation) - Validation state: "Valid"
+2024-12-07 18:20:35.444 -03:00 [INF] Executed action method DeviceManagementApiPresentation.Controllers.DeviceController.SearchDevicesByBrand (DeviceManagementApiPresentation), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 159.5991ms.
+2024-12-07 18:20:35.445 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DeviceManagementDomain.Entities.Device, DeviceManagementDomain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-12-07 18:20:35.446 -03:00 [INF] Executed action DeviceManagementApiPresentation.Controllers.DeviceController.SearchDevicesByBrand (DeviceManagementApiPresentation) in 163.9479ms
+2024-12-07 18:20:35.446 -03:00 [INF] Executed endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.SearchDevicesByBrand (DeviceManagementApiPresentation)'
+2024-12-07 18:20:35.446 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/api/devices/search?brand=BrandName - 200 null application/json; charset=utf-8 169.0033ms
+2024-12-07 18:20:38.422 -03:00 [INF] Application is shutting down...
