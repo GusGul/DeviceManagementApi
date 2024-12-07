@@ -2,113 +2,112 @@
 using DeviceManagementDomain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DeviceManagementApiPresentation.Controllers
+namespace DeviceManagementApiPresentation.Controllers;
+
+[ApiController]
+[Route("api/devices")]
+public class DeviceController : ControllerBase
 {
-    [ApiController]
-    [Route("api/devices")]
-    public class DeviceController : ControllerBase
+    private readonly DeviceService _deviceService;
+
+    public DeviceController(DeviceService deviceService)
     {
-        private readonly DeviceService _deviceService;
+        _deviceService = deviceService;
+    }
 
-        public DeviceController(DeviceService deviceService)
+    [HttpPost]
+    public async Task<IActionResult> AddDevice([FromBody] Device device)
+    {
+        if (!ModelState.IsValid)
         {
-            _deviceService = deviceService;
+            return BadRequest(ModelState);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddDevice([FromBody] Device device)
+        var deviceId = await _deviceService.AddDevice(device);
+
+        return CreatedAtAction(nameof(GetDeviceById), new { id = deviceId }, device);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetDeviceById(int id)
+    {
+        var device = await _deviceService.GetDeviceAsync(id);
+        if (device == null)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var deviceId = await _deviceService.AddDevice(device);
-
-            return CreatedAtAction(nameof(GetDeviceById), new { id = deviceId }, device);
+            return NotFound($"Device with ID {id} not found.");
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetDeviceById(int id)
-        {
-            var device = await _deviceService.GetDeviceAsync(id);
-            if (device == null)
-            {
-                return NotFound($"Device with ID {id} not found.");
-            }
+        return Ok(device);
+    }
 
-            return Ok(device);
+    [HttpGet]
+    public async Task<IActionResult> GetDevices()
+    {
+        var devices = await _deviceService.GetDevicesAsync();
+        return Ok(devices);
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateDevice(int id, [FromBody] Device device)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetDevices()
+        var existingDevice = await _deviceService.GetDeviceAsync(id);
+        if (existingDevice == null)
         {
-            var devices = await _deviceService.GetDevicesAsync();
-            return Ok(devices);
+            return NotFound($"Device with ID {id} not found.");
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateDevice(int id, [FromBody] Device device)
+        device.Id = id;
+        await _deviceService.UpdateDeviceAsync(device);
+
+        return Ok(device);
+    }
+
+    [HttpPatch("{id}")]
+    public async Task<IActionResult> UpdateDevicePartial(int id, [FromBody] Device device)
+    {
+        var existingDevice = await _deviceService.GetDeviceAsync(id);
+        if (existingDevice == null)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var existingDevice = await _deviceService.GetDeviceAsync(id);
-            if (existingDevice == null)
-            {
-                return NotFound($"Device with ID {id} not found.");
-            }
-
-            device.Id = id;
-            await _deviceService.UpdateDeviceAsync(device);
-
-            return Ok(device);
+            return NotFound($"Device with ID {id} not found.");
         }
 
-        [HttpPatch("{id}")]
-        public async Task<IActionResult> UpdateDevicePartial(int id, [FromBody] Device device)
+        if (!string.IsNullOrEmpty(device.Name))
         {
-            var existingDevice = await _deviceService.GetDeviceAsync(id);
-            if (existingDevice == null)
-            {
-                return NotFound($"Device with ID {id} not found.");
-            }
-
-            if (!string.IsNullOrEmpty(device.Name))
-            {
-                existingDevice.Name = device.Name;
-            }
-            if (!string.IsNullOrEmpty(device.Brand))
-            {
-                existingDevice.Brand = device.Brand;
-            }
-
-            await _deviceService.UpdateDeviceAsync(existingDevice);
-
-            return Ok(existingDevice);
+            existingDevice.Name = device.Name;
+        }
+        if (!string.IsNullOrEmpty(device.Brand))
+        {
+            existingDevice.Brand = device.Brand;
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteDevice(int id)
+        await _deviceService.UpdateDeviceAsync(existingDevice);
+
+        return Ok(existingDevice);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteDevice(int id)
+    {
+        var existingDevice = await _deviceService.GetDeviceAsync(id);
+        if (existingDevice == null)
         {
-            var existingDevice = await _deviceService.GetDeviceAsync(id);
-            if (existingDevice == null)
-            {
-                return NotFound($"Device with ID {id} not found.");
-            }
-
-            await _deviceService.DeleteDeviceAsync(id);
-
-            return NoContent();
+            return NotFound($"Device with ID {id} not found.");
         }
 
-        [HttpGet("search")]
-        public async Task<IActionResult> SearchDevicesByBrand([FromQuery] string brand)
-        {
-            var devices = await _deviceService.SearchDevicesByBrandAsync(brand);
-            return Ok(devices);
-        }
+        await _deviceService.DeleteDeviceAsync(id);
+
+        return NoContent();
+    }
+
+    [HttpGet("search")]
+    public async Task<IActionResult> SearchDevicesByBrand([FromQuery] string brand)
+    {
+        var devices = await _deviceService.SearchDevicesByBrandAsync(brand);
+        return Ok(devices);
     }
 }
