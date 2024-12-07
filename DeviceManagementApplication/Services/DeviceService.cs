@@ -1,11 +1,11 @@
-﻿using Application.DTOs;
-using AutoMapper;
+﻿using AutoMapper;
 using DeviceManagementDomain.Entities;
 using DeviceManagementDomain.Interfaces.Repositories;
+using Domain.DTOs;
 
 namespace Application.Services;
 
-public class DeviceService
+public class DeviceService : IDeviceService
 {
     private readonly IDeviceRepository _deviceRepository;
     private readonly IMapper _mapper;
