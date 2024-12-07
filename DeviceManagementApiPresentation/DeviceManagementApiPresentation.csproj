@@ -22,6 +22,7 @@
     <ItemGroup>
       <ProjectReference Include="..\DeviceManagementApplication\DeviceManagementApplication.csproj" />
       <ProjectReference Include="..\DeviceManagementInfrastructure\DeviceManagementInfrastructure.csproj" />
+      <ProjectReference Include="..\DeviceManagementMigrations.DbUp\DeviceManagementMigrations.DbUp.csproj" />
     </ItemGroup>
 
 </Project>

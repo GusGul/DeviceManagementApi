@@ -236,3 +236,4 @@ System.InvalidOperationException: The ConnectionString property has not been ini
 2024-12-07 17:34:33.906 -03:00 [INF] Executed action DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation) in 2627.1232ms
 2024-12-07 17:34:33.907 -03:00 [INF] Executed endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation)'
 2024-12-07 17:34:33.909 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/devices - 201 null application/json; charset=utf-8 2659.1754ms
+2024-12-07 17:36:46.288 -03:00 [INF] Application is shutting down...

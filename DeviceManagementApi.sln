@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagementDomain.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagementInfrastruture.Tests", "DeviceManagementInfrastruture.Tests\DeviceManagementInfrastruture.Tests.csproj", "{2B813D07-FFDA-4275-82D1-8D5E549140B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagementMigrations.DbUp", "DeviceManagementMigrations.DbUp\DeviceManagementMigrations.DbUp.csproj", "{C3091A86-7DA1-4C5C-81AF-1A969B62142E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{2B813D07-FFDA-4275-82D1-8D5E549140B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B813D07-FFDA-4275-82D1-8D5E549140B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B813D07-FFDA-4275-82D1-8D5E549140B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3091A86-7DA1-4C5C-81AF-1A969B62142E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3091A86-7DA1-4C5C-81AF-1A969B62142E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3091A86-7DA1-4C5C-81AF-1A969B62142E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3091A86-7DA1-4C5C-81AF-1A969B62142E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{44AC56CC-B6F1-494C-9591-6DF99E0F7717} = {D95C2267-645D-450E-B426-80133D642669}

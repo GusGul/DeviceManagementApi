@@ -35,6 +35,7 @@ builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
 builder.Services.AddScoped<IDeviceService, DeviceService>();
 
 builder.Services.AddSingleton<LogService>();
+builder.Services.AddSingleton<DatabaseMigrator>();
 builder.Services.AddSingleton<IDbConnection>(_ =>
     new Npgsql.NpgsqlConnection(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
@@ -57,6 +58,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+var databaseMigrator = app.Services.GetRequiredService<DatabaseMigrator>();
+databaseMigrator.MigrateDatabase();
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
