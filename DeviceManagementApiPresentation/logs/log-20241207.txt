@@ -237,3 +237,174 @@ System.InvalidOperationException: The ConnectionString property has not been ini
 2024-12-07 17:34:33.907 -03:00 [INF] Executed endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation)'
 2024-12-07 17:34:33.909 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/devices - 201 null application/json; charset=utf-8 2659.1754ms
 2024-12-07 17:36:46.288 -03:00 [INF] Application is shutting down...
+2024-12-07 17:48:57.705 -03:00 [ERR] Database migration failed: System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\Gustavo\RiderProjects\DeviceManagementApi\DeviceManagementApiPresentation\migrations'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at System.IO.Directory.GetFiles(String path, String searchPattern, EnumerationOptions enumerationOptions)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager) in /_/src/dbup-core/ScriptProviders/FileSystemScriptProvider.cs:line 63
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider) in /_/src/dbup-core/Engine/UpgradeEngine.cs:line 131
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation() in /_/src/dbup-core/Engine/UpgradeEngine.cs:line 140
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade() in /_/src/dbup-core/Engine/UpgradeEngine.cs:line 70
+2024-12-07 17:49:13.985 -03:00 [ERR] Database migration failed: System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\Gustavo\RiderProjects\DeviceManagementApi\DeviceManagementApiPresentation\migrations'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at System.IO.Directory.GetFiles(String path, String searchPattern, EnumerationOptions enumerationOptions)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager) in /_/src/dbup-core/ScriptProviders/FileSystemScriptProvider.cs:line 63
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider) in /_/src/dbup-core/Engine/UpgradeEngine.cs:line 131
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation() in /_/src/dbup-core/Engine/UpgradeEngine.cs:line 140
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade() in /_/src/dbup-core/Engine/UpgradeEngine.cs:line 70
+2024-12-07 17:51:09.733 -03:00 [ERR] Database migration failed: Npgsql.PostgresException (0x80004005): 3F000: schema "SchemaVersions" does not exist
+
+POSITION: 14
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at DbUp.Support.TableJournal.EnsureTableExistsAndIsLatestVersion(Func`1 dbCommandFactory) in /_/src/dbup-core/Support/TableJournal.cs:line 179
+   at DbUp.Support.ScriptExecutor.<>c__DisplayClass20_0.<Execute>b__0(Func`1 dbCommandFactory) in /_/src/dbup-core/Support/ScriptExecutor.cs:line 129
+   at DbUp.Engine.Transactions.NoTransactionStrategy.Execute(Action`1 action) in /_/src/dbup-core/Engine/Transactions/NoTransactionStrategy.cs:line 15
+   at DbUp.Engine.Transactions.DatabaseConnectionManager.ExecuteCommandsWithManagedConnection(Action`1 action) in /_/src/dbup-core/Engine/Transactions/DatabaseConnectionManager.cs:line 131
+   at DbUp.Support.ScriptExecutor.Execute(SqlScript script, IDictionary`2 variables) in /_/src/dbup-core/Support/ScriptExecutor.cs:line 126
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade() in /_/src/dbup-core/Engine/UpgradeEngine.cs:line 84
+  Exception data:
+    Severity: ERROR
+    SqlState: 3F000
+    MessageText: schema "SchemaVersions" does not exist
+    Position: 14
+    File: namespace.c
+    Line: 3093
+    Routine: get_namespace_oid
+2024-12-07 17:53:23.837 -03:00 [ERR] Database migration failed: Npgsql.PostgresException (0x80004005): 3F000: schema "SchemaVersions" does not exist
+
+POSITION: 14
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at DbUp.Support.TableJournal.EnsureTableExistsAndIsLatestVersion(Func`1 dbCommandFactory) in /_/src/dbup-core/Support/TableJournal.cs:line 179
+   at DbUp.Support.ScriptExecutor.<>c__DisplayClass20_0.<Execute>b__0(Func`1 dbCommandFactory) in /_/src/dbup-core/Support/ScriptExecutor.cs:line 129
+   at DbUp.Engine.Transactions.NoTransactionStrategy.Execute(Action`1 action) in /_/src/dbup-core/Engine/Transactions/NoTransactionStrategy.cs:line 15
+   at DbUp.Engine.Transactions.DatabaseConnectionManager.ExecuteCommandsWithManagedConnection(Action`1 action) in /_/src/dbup-core/Engine/Transactions/DatabaseConnectionManager.cs:line 131
+   at DbUp.Support.ScriptExecutor.Execute(SqlScript script, IDictionary`2 variables) in /_/src/dbup-core/Support/ScriptExecutor.cs:line 126
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade() in /_/src/dbup-core/Engine/UpgradeEngine.cs:line 84
+  Exception data:
+    Severity: ERROR
+    SqlState: 3F000
+    MessageText: schema "SchemaVersions" does not exist
+    Position: 14
+    File: namespace.c
+    Line: 3093
+    Routine: get_namespace_oid
+2024-12-07 17:54:36.200 -03:00 [ERR] Database migration failed: Npgsql.PostgresException (0x80004005): 3F000: schema "SchemaVersions" does not exist
+
+POSITION: 14
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at DbUp.Support.TableJournal.EnsureTableExistsAndIsLatestVersion(Func`1 dbCommandFactory) in /_/src/dbup-core/Support/TableJournal.cs:line 179
+   at DbUp.Support.ScriptExecutor.<>c__DisplayClass20_0.<Execute>b__0(Func`1 dbCommandFactory) in /_/src/dbup-core/Support/ScriptExecutor.cs:line 129
+   at DbUp.Engine.Transactions.NoTransactionStrategy.Execute(Action`1 action) in /_/src/dbup-core/Engine/Transactions/NoTransactionStrategy.cs:line 15
+   at DbUp.Engine.Transactions.DatabaseConnectionManager.ExecuteCommandsWithManagedConnection(Action`1 action) in /_/src/dbup-core/Engine/Transactions/DatabaseConnectionManager.cs:line 131
+   at DbUp.Support.ScriptExecutor.Execute(SqlScript script, IDictionary`2 variables) in /_/src/dbup-core/Support/ScriptExecutor.cs:line 126
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade() in /_/src/dbup-core/Engine/UpgradeEngine.cs:line 84
+  Exception data:
+    Severity: ERROR
+    SqlState: 3F000
+    MessageText: schema "SchemaVersions" does not exist
+    Position: 14
+    File: namespace.c
+    Line: 3093
+    Routine: get_namespace_oid
+2024-12-07 17:55:01.608 -03:00 [ERR] Database migration failed: Npgsql.PostgresException (0x80004005): 3F000: schema "SchemaVersions" does not exist
+
+POSITION: 14
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at DbUp.Support.TableJournal.EnsureTableExistsAndIsLatestVersion(Func`1 dbCommandFactory) in /_/src/dbup-core/Support/TableJournal.cs:line 179
+   at DbUp.Support.ScriptExecutor.<>c__DisplayClass20_0.<Execute>b__0(Func`1 dbCommandFactory) in /_/src/dbup-core/Support/ScriptExecutor.cs:line 129
+   at DbUp.Engine.Transactions.NoTransactionStrategy.Execute(Action`1 action) in /_/src/dbup-core/Engine/Transactions/NoTransactionStrategy.cs:line 15
+   at DbUp.Engine.Transactions.DatabaseConnectionManager.ExecuteCommandsWithManagedConnection(Action`1 action) in /_/src/dbup-core/Engine/Transactions/DatabaseConnectionManager.cs:line 131
+   at DbUp.Support.ScriptExecutor.Execute(SqlScript script, IDictionary`2 variables) in /_/src/dbup-core/Support/ScriptExecutor.cs:line 126
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade() in /_/src/dbup-core/Engine/UpgradeEngine.cs:line 84
+  Exception data:
+    Severity: ERROR
+    SqlState: 3F000
+    MessageText: schema "SchemaVersions" does not exist
+    Position: 14
+    File: namespace.c
+    Line: 3093
+    Routine: get_namespace_oid
+2024-12-07 17:56:33.389 -03:00 [ERR] Database migration failed: Npgsql.PostgresException (0x80004005): 42P07: relation "idx_devices_brand" already exists
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at DbUp.Support.ScriptExecutor.ExecuteNonQuery(IDbCommand command) in /_/src/dbup-core/Support/ScriptExecutor.cs:line 201
+   at DbUp.Support.ScriptExecutor.<>c__DisplayClass20_1.<Execute>b__2() in /_/src/dbup-core/Support/ScriptExecutor.cs:line 153
+   at DbUp.Postgresql.PostgresqlScriptExecutor.ExecuteCommandsWithinExceptionHandler(Int32 index, SqlScript script, Action executeCommand) in /_/src/dbup-postgresql/PostgresqlScriptExecutor.cs:line 37
+   at DbUp.Support.ScriptExecutor.<>c__DisplayClass20_0.<Execute>b__0(Func`1 dbCommandFactory) in /_/src/dbup-core/Support/ScriptExecutor.cs:line 151
+   at DbUp.Engine.Transactions.NoTransactionStrategy.Execute(Action`1 action) in /_/src/dbup-core/Engine/Transactions/NoTransactionStrategy.cs:line 15
+   at DbUp.Engine.Transactions.DatabaseConnectionManager.ExecuteCommandsWithManagedConnection(Action`1 action) in /_/src/dbup-core/Engine/Transactions/DatabaseConnectionManager.cs:line 131
+   at DbUp.Support.ScriptExecutor.Execute(SqlScript script, IDictionary`2 variables) in /_/src/dbup-core/Support/ScriptExecutor.cs:line 126
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade() in /_/src/dbup-core/Engine/UpgradeEngine.cs:line 84
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P07
+    MessageText: relation "idx_devices_brand" already exists
+    File: index.c
+    Line: 885
+    Routine: index_create
+2024-12-07 17:56:52.134 -03:00 [INF] Database migration completed successfully.
+2024-12-07 17:56:52.209 -03:00 [INF] Now listening on: http://localhost:5068
+2024-12-07 17:56:52.210 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-07 17:56:52.211 -03:00 [INF] Hosting environment: Development
+2024-12-07 17:56:52.211 -03:00 [INF] Content root path: C:\Users\Gustavo\RiderProjects\DeviceManagementApi\DeviceManagementApiPresentation
+2024-12-07 17:56:52.530 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/index.html - null null
+2024-12-07 17:56:52.594 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/index.html - 200 null text/html;charset=utf-8 65.2282ms
+2024-12-07 17:56:52.789 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2024-12-07 17:56:52.805 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/favicon-32x32.png - null null
+2024-12-07 17:56:52.815 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-12-07 17:56:52.816 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/favicon-32x32.png - 200 628 image/png 10.9232ms
+2024-12-07 17:56:52.852 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 63.1763ms
