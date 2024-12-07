@@ -33,7 +33,7 @@ This project is a Device Management API built with ASP.NET Core. It provides end
 ### Running the Application
 To run the application locally:
 ```bash
-dotnet run
+dotnet run --project ./DeviceManagementApi/DeviceManagementApi.csproj
 ```
 Swagger is configured for API documentation. When running the application, you can access the Swagger UI at https://localhost:5001/swagger or http://localhost:5000/swagger.
 
