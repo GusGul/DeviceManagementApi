@@ -1,4 +1,4 @@
-﻿using Application.DTOs;
+﻿using Domain.DTOs;
 using AutoMapper;
 using DeviceManagementDomain.Entities;
 

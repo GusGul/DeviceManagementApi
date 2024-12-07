@@ -1,6 +1,5 @@
-﻿using Application.DTOs;
-using Application.Services;
-using DeviceManagementDomain.Entities;
+﻿using Application.Services;
+using Domain.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeviceManagementApiPresentation.Controllers;
@@ -9,9 +8,9 @@ namespace DeviceManagementApiPresentation.Controllers;
 [Route("api/devices")]
 public class DeviceController : ControllerBase
 {
-    private readonly DeviceService _deviceService;
+    private readonly IDeviceService _deviceService;
 
-    public DeviceController(DeviceService deviceService)
+    public DeviceController(IDeviceService deviceService)
     {
         _deviceService = deviceService;
     }
@@ -100,6 +99,11 @@ public class DeviceController : ControllerBase
     [HttpGet("search")]
     public async Task<IActionResult> SearchDevicesByBrand([FromQuery] string brand)
     {
+        if (string.IsNullOrEmpty(brand))
+        {
+            return BadRequest("Brand query parameter is required.");
+        }
+        
         var devices = await _deviceService.SearchDevicesByBrandAsync(brand);
         return Ok(devices);
     }
