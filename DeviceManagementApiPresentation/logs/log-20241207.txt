@@ -175,3 +175,64 @@ System.InvalidOperationException: Unable to resolve service for type 'Applicatio
 2024-12-07 12:31:21.574 -03:00 [INF] Executed endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation)'
 2024-12-07 12:31:21.576 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/devices - 201 null application/json; charset=utf-8 1837.9655ms
 2024-12-07 12:31:45.434 -03:00 [INF] Application is shutting down...
+2024-12-07 17:32:31.772 -03:00 [INF] Now listening on: http://localhost:5068
+2024-12-07 17:32:31.829 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-07 17:32:31.830 -03:00 [INF] Hosting environment: Development
+2024-12-07 17:32:31.830 -03:00 [INF] Content root path: C:\Users\Gustavo\RiderProjects\DeviceManagementApi\DeviceManagementApiPresentation
+2024-12-07 17:32:32.474 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/index.html - null null
+2024-12-07 17:32:32.546 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/index.html - 200 null text/html;charset=utf-8 73.549ms
+2024-12-07 17:32:32.773 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2024-12-07 17:32:32.841 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 67.5993ms
+2024-12-07 17:32:39.810 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/devices - application/json 39
+2024-12-07 17:32:39.839 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-12-07 17:32:39.841 -03:00 [INF] Executing endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation)'
+2024-12-07 17:32:39.859 -03:00 [INF] Route matched with {action = "AddDevice", controller = "Device"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddDevice(Domain.DTOs.DeviceDTO) on controller DeviceManagementApiPresentation.Controllers.DeviceController (DeviceManagementApiPresentation).
+2024-12-07 17:32:39.970 -03:00 [INF] Executing action method DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation) - Validation state: "Valid"
+2024-12-07 17:32:40.019 -03:00 [ERR] Error while trying to add a new device: The ConnectionString property has not been initialized.
+2024-12-07 17:32:40.024 -03:00 [INF] Executed action DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation) in 162.3475ms
+2024-12-07 17:32:40.026 -03:00 [INF] Executed endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation)'
+2024-12-07 17:32:40.026 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Npgsql.ThrowHelper.ThrowInvalidOperationException(String message)
+   at Npgsql.NpgsqlConnection.Open(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.OpenAsync(CancellationToken cancellationToken)
+   at Dapper.SqlMapper.TryOpenAsync(IDbConnection cnn, CancellationToken cancel) in /_/Dapper/SqlMapper.Async.cs:line 399
+   at Dapper.SqlMapper.ExecuteScalarImplAsync[T](IDbConnection cnn, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 1240
+   at DeviceManagementInfrastructure.Repositories.DeviceRepository.AddDeviceAsync(Device device) in C:\Users\Gustavo\RiderProjects\DeviceManagementApi\DeviceManagementInfrastructure\Repositories\DeviceRepository.cs:line 31
+   at Application.Services.DeviceService.AddDevice(DeviceDTO deviceDto) in C:\Users\Gustavo\RiderProjects\DeviceManagementApi\DeviceManagementApplication\Services\DeviceService.cs:line 22
+   at DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice(DeviceDTO deviceDto) in C:\Users\Gustavo\RiderProjects\DeviceManagementApi\DeviceManagementApiPresentation\Controllers\DeviceController.cs:line 26
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-12-07 17:32:40.043 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/devices - 500 null text/plain; charset=utf-8 233.4925ms
+2024-12-07 17:34:23.785 -03:00 [INF] Application is shutting down...
+2024-12-07 17:34:27.119 -03:00 [INF] Now listening on: http://localhost:5068
+2024-12-07 17:34:27.155 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-07 17:34:27.156 -03:00 [INF] Hosting environment: Development
+2024-12-07 17:34:27.156 -03:00 [INF] Content root path: C:\Users\Gustavo\RiderProjects\DeviceManagementApi\DeviceManagementApiPresentation
+2024-12-07 17:34:27.269 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/index.html - null null
+2024-12-07 17:34:27.348 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/index.html - 200 null text/html;charset=utf-8 80.2136ms
+2024-12-07 17:34:27.556 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - null null
+2024-12-07 17:34:27.624 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5068/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 67.1312ms
+2024-12-07 17:34:31.250 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5068/api/devices - application/json 43
+2024-12-07 17:34:31.255 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-12-07 17:34:31.258 -03:00 [INF] Executing endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation)'
+2024-12-07 17:34:31.275 -03:00 [INF] Route matched with {action = "AddDevice", controller = "Device"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddDevice(Domain.DTOs.DeviceDTO) on controller DeviceManagementApiPresentation.Controllers.DeviceController (DeviceManagementApiPresentation).
+2024-12-07 17:34:31.400 -03:00 [INF] Executing action method DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation) - Validation state: "Valid"
+2024-12-07 17:34:33.879 -03:00 [INF] Executed action method DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 2474.9054ms.
+2024-12-07 17:34:33.887 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'Domain.DTOs.DeviceDTO'.
+2024-12-07 17:34:33.906 -03:00 [INF] Executed action DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation) in 2627.1232ms
+2024-12-07 17:34:33.907 -03:00 [INF] Executed endpoint 'DeviceManagementApiPresentation.Controllers.DeviceController.AddDevice (DeviceManagementApiPresentation)'
+2024-12-07 17:34:33.909 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5068/api/devices - 201 null application/json; charset=utf-8 2659.1754ms

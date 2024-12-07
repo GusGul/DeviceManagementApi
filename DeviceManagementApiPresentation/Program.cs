@@ -31,9 +31,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<DevicePatchDTOValidator>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<IDatabaseFactory, DatabaseFactory>();
-
 builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
-
 builder.Services.AddScoped<IDeviceService, DeviceService>();
 
 builder.Services.AddSingleton<LogService>();
@@ -48,7 +46,8 @@ builder.Configuration
     .SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: true)
-    .AddEnvironmentVariables();
+    .AddEnvironmentVariables()
+    .AddUserSecrets<Program>();
 
 var app = builder.Build();
 
@@ -60,7 +59,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapControllers();
