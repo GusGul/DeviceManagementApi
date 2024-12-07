@@ -1,5 +1,4 @@
 # Device Management API
-
 This project is a Device Management API built with ASP.NET Core. It provides endpoints to manage devices, including adding, updating, and retrieving device information.
 
 ## Prerequisites
