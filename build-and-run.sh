@@ -1,25 +1,19 @@
 #!/bin/bash
 
-# Define o caminho para o diretório do projeto
 PROJECT_PATH="./DeviceManagementApiPresentation/DeviceManagementApiPresentation.csproj"
 
-# Caminho onde a aplicação será executada
 OUTPUT_PATH="./bin/Release/net6.0/"
 
-# Verifica se o diretório de saída já existe, e se sim, limpa
 if [ -d "$OUTPUT_PATH" ]; then
-    echo "Limpeza do diretório de saída..."
+    echo "Cleaning the output directory..."
     rm -rf "$OUTPUT_PATH"
 fi
 
-# Restaura dependências do projeto
-echo "Restaurando dependências do projeto..."
+echo "Restoring project dependencies..."
 dotnet restore $PROJECT_PATH
 
-# Compila o projeto
-echo "Compilando o projeto..."
+echo "Compiling project..."
 dotnet build $PROJECT_PATH -c Release
 
-# Executa a aplicação
-echo "Executando a aplicação..."
+echo "Running the app..."
 dotnet run --project $PROJECT_PATH
